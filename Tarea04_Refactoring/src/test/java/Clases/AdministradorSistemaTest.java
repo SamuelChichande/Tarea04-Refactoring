@@ -82,12 +82,28 @@ public class AdministradorSistemaTest {
         assertEquals("Promo 2x1", p.getDescripcion());
         assertEquals(0.5f, p.getDescuento());
     }
-    
-    
-    
-    
-    
 
+    
+    
+    @Test
+    @DisplayName("modificar un evento que no existe")
+    public void AS5() {
+        AdministradorSistema admin = new AdministradorSistema("admin", "admin@mail.com");
+        Evento res = admin.modificarEvento(new EventoTeatro("NoExiste", "descripcion...."));
+        assertNull(res);
+    }
+
+    @Test
+    @DisplayName("Comprobar id que no coincide")
+    public void configurarFuncion_idNoCoincide() {
+        AdministradorSistema admin = new AdministradorSistema("admin", "admin@mail.com");
+        Funcion f = new Funcion(-1, new EventoTeatro("T", "D"), null, "ESPOL");
+        assertNull(admin.configurarFuncion(f));
+    }
+
+    
+    
+    
     /**
      * Test of crearEvento method, of class AdministradorSistema.
      */

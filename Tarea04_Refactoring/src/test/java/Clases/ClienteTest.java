@@ -28,64 +28,107 @@ import org.junit.jupiter.api.DisplayName;
  * @author Schic
  */
 public class ClienteTest {
-    
+
     public ClienteTest() {
     }
-    
+
     @Test
     @DisplayName("Prueba para caso comun seleccionarFuncion")
-    public void c1(){
+    public void c1() {
         Evento e = new EventoTeatro("Romeo y Julieta", "Es una tragedia del dramaturgo inglés William Shakespeare");
         Funcion f = new Funcion(1, e, LocalDateTime.now(), "ESPOL");
         GestorFunciones gf = GestorFunciones.getInstance();
         gf.agregarFuncion(f);
-        
+
         Cliente c = new Cliente("Roberto", "rto@hotmail.com");
-        
+
         assertEquals(f, c.seleccionarFuncion(1));
     }
-    
+
     @Test
     @DisplayName("Comprobar para casos vacios reservarAsiento")
-    public void c2(){
+    public void c2() {
         Cliente c = new Cliente("Roberto", "rto@hotmail.com");
         assertNull(c.reservarAsientos(null, null));
     }
-    
+
     @Test
     @DisplayName("Comprobar para caso comun reservarAsiento")
-    public void c3(){
+    public void c3() {
         Evento e = new EventoTeatro("Romeo y Julieta", "Es una tragedia del dramaturgo inglés William Shakespeare");
         Funcion f = new Funcion(1, e, LocalDateTime.now(), "ESPOL");
         GestorFunciones gf = GestorFunciones.getInstance();
         gf.agregarFuncion(f);
-        
+
         Cliente c = new Cliente("Roberto", "rto@hotmail.com");
-        
+
         List<Asiento> a = new ArrayList<>();
         a.add(new AsientoBalcon(c, "AsientoBalcon"));
         a.add(new AsientoPlatea(c, "AsientoBalcon"));
         a.add(new AsientoVIP(c, "AsientoBalcon"));
-        
+
         assertTrue(c.equals(c.reservarAsientos(a, f).getUsuario()));
     }
-    
+
     @Test
     @DisplayName("Comprobar que se compro un ticket comun, sin opciones adicionales")
-    public void c4(){
+    public void c4() {
         Evento e = new EventoTeatro("Romeo y Julieta", "Es una tragedia del dramaturgo inglés William Shakespeare");
         Funcion f = new Funcion(1, e, LocalDateTime.now(), "ESPOL");
-        
+
         Cliente c = new Cliente("Roberto", "rto@hotmail.com");
-        
+
         List<Asiento> a = new ArrayList<>();
         a.add(new AsientoBalcon(c, "AsientoBalcon"));
         a.add(new AsientoPlatea(c, "AsientoBalcon"));
         a.add(new AsientoVIP(c, "AsientoBalcon"));
-        
+
         Reservacion r = c.reservarAsientos(a, f);
         assertTrue(5 == c.comprarTicket(r).precio());
     }
+
+    
+    
+    @Test
+    @DisplayName("Comprobar un id de una funcion negativa")
+    public void CL1() {
+        Cliente c = new Cliente("Ana", "ana@mail.com");
+        assertNull(c.seleccionarFuncion(-1));
+    }
+
+    @Test
+    @DisplayName("Comprobar que no permita listas null")
+    public void CL2() {
+        Cliente c = new Cliente("Ana", "ana@mail.com");
+        Funcion funcionValida = new Funcion(1, new EventoTeatro("T", "D"), null, "ESPOL");
+
+        assertNull(c.reservarAsientos(null, funcionValida));
+    }
+
+    static class AsientoT extends Asiento {
+
+        public AsientoT(Usuario u, String codigo) {
+            super(u, codigo);
+        }
+    }
+
+    @Test
+    @DisplayName("Comprobar que no permita funciones null")
+    public void CL3() {
+        Cliente cliente = new Cliente("Cesar", "cesar@mail.com");
+        List<Asiento> asientos = List.of(new AsientoT(cliente, "Al123"));
+
+        Reservacion r = cliente.reservarAsientos(asientos, null);
+        assertNull(r);
+    }
+
+    @Test
+    @DisplayName("Verificar que el metodo ejecuta sin fallas")
+    public void CL4() {
+        Cliente cliente = new Cliente("carlos", "carlos@mail.com");
+        assertDoesNotThrow(() -> cliente.reportarIncidente("Error en pago"));
+    }
+
     
     
     
@@ -135,6 +178,4 @@ public class ClienteTest {
         fail("The test case is a prototype.");
     }
 
-    
-    
 }

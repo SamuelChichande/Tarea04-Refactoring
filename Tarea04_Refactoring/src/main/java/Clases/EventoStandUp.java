@@ -19,6 +19,9 @@ public class EventoStandUp extends Evento {
 
     @Override
     public void agregarFuncion(String titulo, String descripcion) {
+        if (titulo == null || titulo.isEmpty() || descripcion == null || descripcion.isEmpty()) {
+            throw new IllegalArgumentException("Titulo/descripcion no pueden ser vacios");
+        }
         GestorFunciones gf = GestorFunciones.getInstance();
         Evento e = new EventoStandUp(titulo, descripcion);
         Funcion f = gf.getFunciones().getLast();

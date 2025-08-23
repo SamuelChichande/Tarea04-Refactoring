@@ -1,4 +1,13 @@
 Clases\ClienteTest.class
 Clases\AdministradorSistemaTest.class
+Clases\IncidenteTest.class
 Patron_Decorator\TicketDecoratorTest.class
+Clases\EventoMicroTeatroTest.class
 Patron_Observer\FuncionTest.class
+Clases\UsuarioTest.class
+Clases\EventoStandUpTest.class
+Clases\SoporteClienteTest.class
+Clases\EventoTeatroTest.class
+Clases\ClienteTest$AsientoT.class
+Clases\PoliticaCancelacionTest.class
+Clases\PromocionTest.class
