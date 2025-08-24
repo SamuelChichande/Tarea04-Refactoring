@@ -20,6 +20,7 @@ public class Reservacion {
     private Funcion funcion;
     private List<Asiento> asientos;
     private LocalDate fechaExpiracion;
+    private Random random = new Random();
 
     public Reservacion(Usuario usuario, Funcion funcion, List<Asiento> asientos, LocalDate fechaExpiracion) {
         this.funcion = funcion;
@@ -29,7 +30,6 @@ public class Reservacion {
     }
 
     public boolean confirmarCompra(TicketComponent ticket) {
-        Random random = new Random();
         double num = random.nextDouble();
         if (num > 0.7) {
             return true;

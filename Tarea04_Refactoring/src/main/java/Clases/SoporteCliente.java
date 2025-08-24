@@ -12,6 +12,7 @@ import java.util.Random;
  * @author Schic
  */
 public class SoporteCliente extends Usuario {
+    private Random random = new Random();
 
     public SoporteCliente(String nombre, String email) {
         super(nombre, email);
@@ -23,7 +24,6 @@ public class SoporteCliente extends Usuario {
     }
 
     public void solucionarIncidente(Incidente incidente) {
-        Random random = new Random();
         double n = random.nextDouble();
         if (n > 0.6) {
             GestorIncidentes gi = GestorIncidentes.getInstance();
