@@ -107,8 +107,8 @@ public class ClienteTest {
 
     static class AsientoT extends Asiento {
 
-        public AsientoT(Usuario u, String codigo) {
-            super(u, codigo);
+        public AsientoT(double precio, Usuario u, String codigo) {
+            super(precio, u, codigo);
         }
     }
 
@@ -116,7 +116,7 @@ public class ClienteTest {
     @DisplayName("Comprobar que no permita funciones null")
     public void CL3() {
         Cliente cliente = new Cliente("Cesar", "cesar@mail.com");
-        List<Asiento> asientos = List.of(new AsientoT(cliente, "Al123"));
+        List<Asiento> asientos = List.of(new AsientoT(3.0, cliente, "Al123"));
 
         Reservacion r = cliente.reservarAsientos(asientos, null);
         assertNull(r);

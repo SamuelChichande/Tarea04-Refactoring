@@ -4,16 +4,19 @@
  */
 package Patron_Observer;
 
+import java.util.logging.Logger;
+
 /**
  *
  * @author Schic
  */
 public class NotificacionSMS implements NotificacionListener {
-
+    private NotificacionManager notificacionManager;
+    
     @Override
     public void actualizar() {
-        // Proceso de envio de notificacion por SMS
-        System.out.println("Se ha notificado a todos los clientes por medio de SMS de manera exitosa.");
+        notificacionManager.suscribir(() -> Logger.getLogger(NotificacionSMS.class.getName())
+                .info("Notification por SMS"));
     }
 
 }

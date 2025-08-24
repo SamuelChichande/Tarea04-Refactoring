@@ -4,6 +4,8 @@
  */
 package Patron_Factory_Method;
 
+import Clases.Usuario;
+
 /**
  *
  * @author Schic
@@ -15,8 +17,8 @@ public class BalconAsientoCreator extends AsientoCreator {
     }
 
     @Override
-    public Asiento crearAsiento() {
-        return new AsientoPlatea(getAsiento().getReservadoPor(), getAsiento().getDescripcion());
+    public Asiento crearAsiento(Usuario usuario, String descripcion) {
+        return new AsientoBalcon(usuario, descripcion);
     }
 
 }

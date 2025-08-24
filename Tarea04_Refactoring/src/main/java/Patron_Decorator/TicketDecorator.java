@@ -14,7 +14,5 @@ public abstract class TicketDecorator implements TicketComponent {
     public TicketDecorator(TicketComponent ticket) {
         this.ticket = ticket;
     }
-
-    public abstract TicketDecorator agregarOpcion(TicketComponent ticket);
-
+    
 }

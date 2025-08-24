@@ -15,7 +15,11 @@ public abstract class Asiento {
     protected double precio;
     protected String descripcion;
 
-    public Asiento(Usuario reservadoPor, String descripcion) {
+    public Asiento(double precio, Usuario reservadoPor, String descripcion) {
+        if (reservadoPor == null || descripcion == null) { 
+            throw new IllegalArgumentException("Datos inválidos"); 
+        }
+        this.precio = precio;
         this.reservadoPor = reservadoPor;
         this.descripcion = descripcion;
     }
@@ -24,24 +28,13 @@ public abstract class Asiento {
         return reservadoPor;
     }
 
+    public boolean estaReservado() {
+        return reservadoPor != null;
+    }
+
     public void setReservadoPor(Usuario reservadoPor) {
         this.reservadoPor = reservadoPor;
     }
 
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 
 }

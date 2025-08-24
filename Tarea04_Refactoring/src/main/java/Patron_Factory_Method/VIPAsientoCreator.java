@@ -4,6 +4,8 @@
  */
 package Patron_Factory_Method;
 
+import Clases.Usuario;
+
 /**
  *
  * @author Schic
@@ -15,8 +17,8 @@ public class VIPAsientoCreator extends AsientoCreator {
     }
 
     @Override
-    public Asiento crearAsiento() {
-        return new AsientoVIP(getAsiento().getReservadoPor(), getAsiento().getDescripcion());
+    public Asiento crearAsiento(Usuario usuario, String descripcion) {
+        return new AsientoVIP(usuario, descripcion);
     }
 
 }

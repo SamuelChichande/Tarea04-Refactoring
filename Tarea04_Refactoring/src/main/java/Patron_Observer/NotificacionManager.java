@@ -36,7 +36,7 @@ public class NotificacionManager {
     public void notificarSuscriptores() {
         List<Asiento> listAsiento = funcion.getAsientos();
         for (Asiento asiento : listAsiento) {
-            if (asiento.getReservadoPor() != null) {
+            if (asiento.estaReservado()) {
                 NotificacionEmail ne = new NotificacionEmail();
                 NotificacionSMS nSMS = new NotificacionSMS();
                 ne.actualizar();

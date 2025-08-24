@@ -30,6 +30,10 @@ public class GestorFunciones {
     public void agregarFuncion(Funcion funcion) {
         funciones.add(funcion);
     }
+    
+    public boolean eliminarFuncion(Funcion funcion) {
+        return funciones.remove(funcion);
+    }
 
     public List<Funcion> getFunciones() {
         return new ArrayList<>(funciones);

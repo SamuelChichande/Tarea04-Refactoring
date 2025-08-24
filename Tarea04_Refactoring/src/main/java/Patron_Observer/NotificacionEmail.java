@@ -4,16 +4,19 @@
  */
 package Patron_Observer;
 
+import java.util.logging.Logger;
+
 /**
  *
  * @author Schic
  */
 public class NotificacionEmail implements NotificacionListener {
-
+    private NotificacionManager notificacionManager;
+    
     @Override
     public void actualizar() {
-        // Proceso de envio de notificacion por email
-        System.out.println("Se ha notificado a todos los clientes por medio de email de manera exitosa.");
+        notificacionManager.suscribir(() -> Logger.getLogger(NotificacionEmail.class.getName())
+                .info("Notification por Email"));
     }
 
 }

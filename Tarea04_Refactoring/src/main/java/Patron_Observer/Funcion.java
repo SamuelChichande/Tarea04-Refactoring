@@ -34,19 +34,22 @@ public class Funcion {
     public List<Asiento> getAsientosDisponibles() {
         List<Asiento> asientoDisponibles = new ArrayList<>();
         for (Asiento asiento : getAsientos()) {
-            if (asiento.getReservadoPor() == null) {
+            if (!asiento.estaReservado()) {
                 asientoDisponibles.add(asiento);
             }
         }
         return asientoDisponibles;
     }
-
-    public void reprogramar(LocalDateTime fechaHora, String ubicacion) {
+    
+    private void actualizarFecha(LocalDateTime fechaHora){
         if (fechaHora != null) {
             setFechaHora(fechaHora);
             notificaciones.notificarSuscriptores();
         }
+    }
 
+    public void reprogramar(LocalDateTime fechaHora, String ubicacion) {
+        actualizarFecha(fechaHora);
         if (!ubicacion.isEmpty() && ubicacion != null) {
             setUbicacion(ubicacion);
             notificaciones.notificarSuscriptores();
@@ -59,7 +62,7 @@ public class Funcion {
         List<Funcion> listFunciones = gf.getFunciones();
         for (int i = 0; i < listFunciones.size(); i++) {
             if (listFunciones.get(i).equals(this)) {
-                listFunciones.remove(i);
+                GestorFunciones.getInstance().eliminarFuncion(this);
                 System.out.println("La funcion ha sido cancelada exitosamente");
                 notificaciones.notificarSuscriptores();
                 break;

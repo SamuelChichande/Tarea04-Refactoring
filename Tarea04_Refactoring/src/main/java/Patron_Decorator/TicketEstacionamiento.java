@@ -9,6 +9,8 @@ package Patron_Decorator;
  * @author Schic
  */
 public class TicketEstacionamiento extends TicketDecorator {
+    
+    private static final double PRECIO_ESTACIONAMIENTO = 2.5;
 
     public TicketEstacionamiento(TicketComponent ticket) {
         super(ticket);
@@ -16,17 +18,13 @@ public class TicketEstacionamiento extends TicketDecorator {
 
     @Override
     public double precio() {
-        System.out.println("La opcion adicional de estacionamiento cuesta: " + 2.5);
-        return ticket.precio() + 2.5;
+        System.out.println("La opcion adicional de estacionamiento cuesta: " + PRECIO_ESTACIONAMIENTO);
+        return ticket.precio() + PRECIO_ESTACIONAMIENTO;
     }
 
     @Override
     public String descripcion() {
         return "A su ticket se a añadido la opcion adicional de estacionamiento";
     }
-
-    @Override
-    public TicketDecorator agregarOpcion(TicketComponent ticket) {
-        return new TicketEstacionamiento(ticket);
-    }
+    
 }

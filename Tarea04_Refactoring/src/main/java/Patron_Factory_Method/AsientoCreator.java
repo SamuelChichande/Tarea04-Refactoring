@@ -17,21 +17,13 @@ public abstract class AsientoCreator {
         this.asiento = asiento;
     }
 
-    public abstract Asiento crearAsiento();
+    public abstract Asiento crearAsiento(Usuario usuario, String descripcion);
 
     public Asiento vender(Usuario usuario) {
-        Asiento a = getAsiento();
+        Asiento a = asiento;
         a.setReservadoPor(usuario);
         System.out.println("El asiento ha sido vendido a: " + usuario.getNombre());
         return a;
     };
-
-    public Asiento getAsiento() {
-        return asiento;
-    }
-
-    public void setAsiento(Asiento asiento) {
-        this.asiento = asiento;
-    }
 
 }

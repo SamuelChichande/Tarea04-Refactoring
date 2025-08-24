@@ -9,6 +9,8 @@ package Patron_Decorator;
  * @author Schic
  */
 public class TicketSeguro extends TicketDecorator {
+    
+    private static final double PRECIO_SEGURO = 1.0;
 
     public TicketSeguro(TicketComponent ticket) {
         super(ticket);
@@ -16,17 +18,13 @@ public class TicketSeguro extends TicketDecorator {
 
     @Override
     public double precio() {
-        System.out.println("La opcion adicional de seguro cuesta: " + 1);
-        return ticket.precio() + 1;
+        System.out.println("La opcion adicional de seguro cuesta: " + PRECIO_SEGURO);
+        return ticket.precio() + PRECIO_SEGURO;
     }
 
     @Override
     public String descripcion() {
         return "A su ticket se le ha añadido la opcion adicional de seguro";
     }
-
-    @Override
-    public TicketDecorator agregarOpcion(TicketComponent ticket) {
-        return new TicketSeguro(ticket);
-    }
+    
 }

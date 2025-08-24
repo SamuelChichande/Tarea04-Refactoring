@@ -12,7 +12,6 @@ import Patron_Singlenton.GestorEventos;
 import Patron_Singlenton.GestorFunciones;
 import Patron_Singlenton.GestorIncidentes;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

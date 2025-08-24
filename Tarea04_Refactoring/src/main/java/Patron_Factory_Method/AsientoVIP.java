@@ -11,10 +11,11 @@ import Clases.Usuario;
  * @author Schic
  */
 public class AsientoVIP extends Asiento {
+    
+    private static final double PRECIO_VIP = 6.0;
 
     public AsientoVIP(Usuario reservadoPor, String descripcion) {
-        super(reservadoPor, descripcion);
-        this.precio = 6;
+        super(PRECIO_VIP, reservadoPor, descripcion);
     }
 
 }

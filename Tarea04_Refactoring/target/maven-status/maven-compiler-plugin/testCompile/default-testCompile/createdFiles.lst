@@ -8,6 +8,8 @@ Clases\UsuarioTest.class
 Clases\EventoStandUpTest.class
 Clases\SoporteClienteTest.class
 Clases\EventoTeatroTest.class
+Clases\EventoTest$EventoImpl.class
 Clases\ClienteTest$AsientoT.class
+Clases\EventoTest.class
 Clases\PoliticaCancelacionTest.class
 Clases\PromocionTest.class
