@@ -16,37 +16,41 @@ import org.junit.jupiter.api.DisplayName;
  *
  * @author Cesar Moreira
  */
-public class SoporteClienteTest {
-    
-    public SoporteClienteTest() {
+class SoporteClienteTest {
+
+    SoporteClienteTest() {
+        // Constructor vacío intencional: requerido por JUnit para instanciar la clase de prueba
     }
-    
+
     @BeforeAll
-    public static void setUpClass() {
+    static void setUpClass() {
+        // Intencionalmente vacío: no se requiere configuración global antes de las pruebas
     }
-    
+
     @AfterAll
-    public static void tearDownClass() {
+    static void tearDownClass() {
+        // Intencionalmente vacío: no se requiere limpieza global después de las pruebas
     }
-    
+
     @BeforeEach
-    public void setUp() {
+    void setUp() {
+        // Intencionalmente vacío: no se necesita inicialización previa por cada prueba
     }
-    
+
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
+        // Intencionalmente vacío: no se necesita limpieza posterior a cada prueba
     }
 
     /**
      * Test of escalarIncidente method, of class SoporteCliente.
      */
     @Test
-    public void testEscalarIncidente() {
+    void testEscalarIncidente() {
         System.out.println("escalarIncidente");
         Incidente incidente = null;
         SoporteCliente instance = null;
         instance.escalarIncidente(incidente);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -54,33 +58,31 @@ public class SoporteClienteTest {
      * Test of solucionarIncidente method, of class SoporteCliente.
      */
     @Test
-    public void testSolucionarIncidente() {
+    void testSolucionarIncidente() {
         System.out.println("solucionarIncidente");
         Incidente incidente = null;
         SoporteCliente instance = null;
         instance.solucionarIncidente(incidente);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
-    
+
     @Test
     @DisplayName("Comprobar que el metodo no falla ante una entrada valida")
-    public void SC1() {
+    void SC1() {
         AdministradorEvento ad = new AdministradorEvento("Admin", "a@mail.com");
         Incidente inc = new Incidente("Falla", "Pendiente", new Usuario("U", "u@mail.com"));
 
         assertDoesNotThrow(() -> ad.solucionarIncidente(inc));
 
     }
-    
+
     @Test
     @DisplayName("Comprobar que el metodo no falla ante una entrada valida")
-    public void SC2() {
-        SoporteCliente sc = new SoporteCliente("Soporte","s@mail.com");
-        Incidente inc = new Incidente("Caida","Pendiente", new Usuario("U","u@mail.com"));
+    void SC2() {
+        SoporteCliente sc = new SoporteCliente("Soporte", "s@mail.com");
+        Incidente inc = new Incidente("Caida", "Pendiente", new Usuario("U", "u@mail.com"));
 
         assertDoesNotThrow(() -> sc.escalarIncidente(inc));
     }
-    
+
 }

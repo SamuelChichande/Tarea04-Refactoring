@@ -16,38 +16,42 @@ import org.junit.jupiter.api.DisplayName;
  *
  * @author Cesar Moreira
  */
-public class UsuarioTest {
-    
-    public UsuarioTest() {
+class UsuarioTest {
+
+    UsuarioTest() {
+        // Constructor vacío intencional: requerido por JUnit para instanciar la clase de prueba
     }
-    
+
     @BeforeAll
-    public static void setUpClass() {
+    static void setUpClass() {
+        // Intencionalmente vacío: no se requiere configuración global antes de las pruebas
     }
-    
+
     @AfterAll
-    public static void tearDownClass() {
+    static void tearDownClass() {
+        // Intencionalmente vacío: no se requiere limpieza global después de las pruebas
     }
-    
+
     @BeforeEach
-    public void setUp() {
+    void setUp() {
+        // Intencionalmente vacío: no se necesita inicialización previa por cada prueba
     }
-    
+
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
+        // Intencionalmente vacío: no se necesita limpieza posterior a cada prueba
     }
 
     /**
      * Test of getNombre method, of class Usuario.
      */
     @Test
-    public void testGetNombre() {
+    void testGetNombre() {
         System.out.println("getNombre");
         Usuario instance = null;
         String expResult = "";
         String result = instance.getNombre();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -55,12 +59,11 @@ public class UsuarioTest {
      * Test of setNombre method, of class Usuario.
      */
     @Test
-    public void testSetNombre() {
+    void testSetNombre() {
         System.out.println("setNombre");
         String nombre = "";
         Usuario instance = null;
         instance.setNombre(nombre);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -68,13 +71,12 @@ public class UsuarioTest {
      * Test of getEmail method, of class Usuario.
      */
     @Test
-    public void testGetEmail() {
+    void testGetEmail() {
         System.out.println("getEmail");
         Usuario instance = null;
         String expResult = "";
         String result = instance.getEmail();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -82,29 +84,22 @@ public class UsuarioTest {
      * Test of setEmail method, of class Usuario.
      */
     @Test
-    public void testSetEmail() {
+    void testSetEmail() {
         System.out.println("setEmail");
         String email = "";
         Usuario instance = null;
         instance.setEmail(email);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
-    
 
-    
-    
-    
-    
     @Test
     @DisplayName("Comprobar getters y setters")
     void U1() {
-        Usuario u = new Usuario("N","E");
+        Usuario u = new Usuario("N", "E");
         u.setNombre("X");
         u.setEmail("Y");
         assertEquals("X", u.getNombre());
         assertEquals("Y", u.getEmail());
     }
-    
+
 }

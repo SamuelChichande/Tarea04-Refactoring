@@ -17,30 +17,35 @@ import org.junit.jupiter.api.DisplayName;
  *
  * @author Cesar Moreira
  */
-public class AdministradorSistemaTest {
+class AdministradorSistemaTest {
 
-    public AdministradorSistemaTest() {
+    AdministradorSistemaTest() {
+        // Constructor vacío intencional: requerido por el framework de pruebas
     }
 
     @BeforeAll
-    public static void setUpClass() {
+    void setUpClass() {
+         // Método intencionalmente vacío, no requiere configuración global
     }
 
     @AfterAll
-    public static void tearDownClass() {
+    static void tearDownClass() {
+        // Método intencionalmente vacío, no requiere limpieza global
     }
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
+        // Método intencionalmente vacío, no se necesita inicialización previa
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
+         // Método intencionalmente vacío, no se necesita limpieza posterior
     }
 
     @Test
     @DisplayName("Crear eventos con entradas null")
-    public void AS1() {
+    void AS1() {
         AdministradorSistema admin = new AdministradorSistema("Admin", "a@a.com");
 
         Evento e = admin.crearEvento(null, null);
@@ -50,7 +55,7 @@ public class AdministradorSistemaTest {
 
     @Test
     @DisplayName("Crear eventos con entradas vacias")
-    public void AS2() {
+    void AS2() {
         AdministradorSistema admin = new AdministradorSistema("Admin", "a@a.com");
 
         Evento e = admin.crearEvento("", "");
@@ -60,7 +65,7 @@ public class AdministradorSistemaTest {
 
     @Test
     @DisplayName("Crear un evento valido")
-    public void AS3() {
+    void AS3() {
         AdministradorSistema admin = new AdministradorSistema("Admin", "a@a.com");
 
         Evento e = admin.crearEvento("Título", "Descripcion");
@@ -73,7 +78,7 @@ public class AdministradorSistemaTest {
 
     @Test
     @DisplayName("Crear una promocion con valores validos")
-    public void AS4() {
+    void AS4() {
         AdministradorSistema admin = new AdministradorSistema("Admin", "a@a.com");
 
         Promocion p = admin.definirPromocion("Promo 2x1", 0.5f);
@@ -87,7 +92,7 @@ public class AdministradorSistemaTest {
     
     @Test
     @DisplayName("modificar un evento que no existe")
-    public void AS5() {
+    void AS5() {
         AdministradorSistema admin = new AdministradorSistema("admin", "admin@mail.com");
         Evento res = admin.modificarEvento(new EventoTeatro("NoExiste", "descripcion...."));
         assertNull(res);
@@ -95,7 +100,7 @@ public class AdministradorSistemaTest {
 
     @Test
     @DisplayName("Comprobar id que no coincide")
-    public void configurarFuncion_idNoCoincide() {
+    void AS7() {
         AdministradorSistema admin = new AdministradorSistema("admin", "admin@mail.com");
         Funcion f = new Funcion(-1, new EventoTeatro("T", "D"), null, "ESPOL");
         assertNull(admin.configurarFuncion(f));
@@ -108,7 +113,7 @@ public class AdministradorSistemaTest {
      * Test of crearEvento method, of class AdministradorSistema.
      */
     @Test
-    public void testCrearEvento() {
+    void testCrearEvento() {
         System.out.println("crearEvento");
         String titulo = "";
         String descripcion = "";
@@ -116,7 +121,7 @@ public class AdministradorSistemaTest {
         Evento expResult = null;
         Evento result = instance.crearEvento(titulo, descripcion);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
+        
         fail("The test case is a prototype.");
     }
 
@@ -124,14 +129,13 @@ public class AdministradorSistemaTest {
      * Test of modificarEvento method, of class AdministradorSistema.
      */
     @Test
-    public void testModificarEvento() {
+    void testModificarEvento() {
         System.out.println("modificarEvento");
         Evento evento = null;
         AdministradorSistema instance = null;
         Evento expResult = null;
         Evento result = instance.modificarEvento(evento);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
+        assertEquals(expResult, result); 
         fail("The test case is a prototype.");
     }
 
@@ -139,14 +143,13 @@ public class AdministradorSistemaTest {
      * Test of configurarFuncion method, of class AdministradorSistema.
      */
     @Test
-    public void testConfigurarFuncion() {
+    void testConfigurarFuncion() {
         System.out.println("configurarFuncion");
         Funcion funcion = null;
         AdministradorSistema instance = null;
         Funcion expResult = null;
         Funcion result = instance.configurarFuncion(funcion);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -154,7 +157,7 @@ public class AdministradorSistemaTest {
      * Test of definirPromocion method, of class AdministradorSistema.
      */
     @Test
-    public void testDefinirPromocion() {
+    void testDefinirPromocion() {
         System.out.println("definirPromocion");
         String descripcion = "";
         float descuento = 0.0F;
@@ -162,7 +165,6 @@ public class AdministradorSistemaTest {
         Promocion expResult = null;
         Promocion result = instance.definirPromocion(descripcion, descuento);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -171,12 +173,11 @@ public class AdministradorSistemaTest {
      * AdministradorSistema.
      */
     @Test
-    public void testConfigurarPoliticaCancelamiento() {
+    void testConfigurarPoliticaCancelamiento() {
         System.out.println("configurarPoliticaCancelamiento");
         PoliticaCancelacion politicaCancelacion = null;
         AdministradorSistema instance = null;
         instance.configurarPoliticaCancelamiento(politicaCancelacion);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 

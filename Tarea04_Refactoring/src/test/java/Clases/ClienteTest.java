@@ -27,14 +27,15 @@ import org.junit.jupiter.api.DisplayName;
  *
  * @author Schic
  */
-public class ClienteTest {
+class ClienteTest {
 
-    public ClienteTest() {
+    ClienteTest() {
+        // Constructor vacío intencional: requerido por JUnit para instanciar la clase de prueba
     }
 
     @Test
     @DisplayName("Prueba para caso comun seleccionarFuncion")
-    public void c1() {
+    void c1() {
         Evento e = new EventoTeatro("Romeo y Julieta", "Es una tragedia del dramaturgo inglés William Shakespeare");
         Funcion f = new Funcion(1, e, LocalDateTime.now(), "ESPOL");
         GestorFunciones gf = GestorFunciones.getInstance();
@@ -47,14 +48,14 @@ public class ClienteTest {
 
     @Test
     @DisplayName("Comprobar para casos vacios reservarAsiento")
-    public void c2() {
+    void c2() {
         Cliente c = new Cliente("Roberto", "rto@hotmail.com");
         assertNull(c.reservarAsientos(null, null));
     }
 
     @Test
     @DisplayName("Comprobar para caso comun reservarAsiento")
-    public void c3() {
+    void c3() {
         Evento e = new EventoTeatro("Romeo y Julieta", "Es una tragedia del dramaturgo inglés William Shakespeare");
         Funcion f = new Funcion(1, e, LocalDateTime.now(), "ESPOL");
         GestorFunciones gf = GestorFunciones.getInstance();
@@ -72,7 +73,7 @@ public class ClienteTest {
 
     @Test
     @DisplayName("Comprobar que se compro un ticket comun, sin opciones adicionales")
-    public void c4() {
+    void c4() {
         Evento e = new EventoTeatro("Romeo y Julieta", "Es una tragedia del dramaturgo inglés William Shakespeare");
         Funcion f = new Funcion(1, e, LocalDateTime.now(), "ESPOL");
 
@@ -91,14 +92,14 @@ public class ClienteTest {
     
     @Test
     @DisplayName("Comprobar un id de una funcion negativa")
-    public void CL1() {
+    void CL1() {
         Cliente c = new Cliente("Ana", "ana@mail.com");
         assertNull(c.seleccionarFuncion(-1));
     }
 
     @Test
     @DisplayName("Comprobar que no permita listas null")
-    public void CL2() {
+    void CL2() {
         Cliente c = new Cliente("Ana", "ana@mail.com");
         Funcion funcionValida = new Funcion(1, new EventoTeatro("T", "D"), null, "ESPOL");
 
@@ -114,7 +115,7 @@ public class ClienteTest {
 
     @Test
     @DisplayName("Comprobar que no permita funciones null")
-    public void CL3() {
+    void CL3() {
         Cliente cliente = new Cliente("Cesar", "cesar@mail.com");
         List<Asiento> asientos = List.of(new AsientoT(3.0, cliente, "Al123"));
 
@@ -124,7 +125,7 @@ public class ClienteTest {
 
     @Test
     @DisplayName("Verificar que el metodo ejecuta sin fallas")
-    public void CL4() {
+    void CL4() {
         Cliente cliente = new Cliente("carlos", "carlos@mail.com");
         assertDoesNotThrow(() -> cliente.reportarIncidente("Error en pago"));
     }
@@ -138,7 +139,7 @@ public class ClienteTest {
      * Test of verEventos method, of class Cliente.
      */
     @Test
-    public void testVerEventos() {
+    void testVerEventos() {
         System.out.println("verEventos");
         Cliente instance = null;
         List<Evento> expResult = null;
@@ -152,7 +153,7 @@ public class ClienteTest {
      * Test of seleccionarFuncion method, of class Cliente.
      */
     @Test
-    public void testSeleccionarFuncion() {
+    void testSeleccionarFuncion() {
         System.out.println("seleccionarFuncion");
         int id = 0;
         Cliente instance = null;
@@ -167,7 +168,7 @@ public class ClienteTest {
      * Test of comprarTicket method, of class Cliente.
      */
     @Test
-    public void testComprarTicket() {
+    void testComprarTicket() {
         System.out.println("comprarTicket");
         Reservacion reservacion = null;
         Cliente instance = null;

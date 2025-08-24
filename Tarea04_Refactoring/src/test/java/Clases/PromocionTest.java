@@ -16,38 +16,42 @@ import org.junit.jupiter.api.DisplayName;
  *
  * @author Cesar Moreira
  */
-public class PromocionTest {
-    
-    public PromocionTest() {
+class PromocionTest {
+
+    PromocionTest() {
+        // Constructor vacío intencional: requerido por JUnit para instanciar la clase de prueba
     }
-    
+
     @BeforeAll
-    public static void setUpClass() {
+    static void setUpClass() {
+        // Intencionalmente vacío: no se requiere configuración global antes de las pruebas
     }
-    
+
     @AfterAll
-    public static void tearDownClass() {
+    static void tearDownClass() {
+        // Intencionalmente vacío: no se requiere limpieza global después de las pruebas
     }
-    
+
     @BeforeEach
-    public void setUp() {
+    void setUp() {
+        // Intencionalmente vacío: no se necesita inicialización previa por cada prueba
     }
-    
+
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
+        // Intencionalmente vacío: no se necesita limpieza posterior a cada prueba
     }
 
     /**
      * Test of getDescripcion method, of class Promocion.
      */
     @Test
-    public void testGetDescripcion() {
+    void testGetDescripcion() {
         System.out.println("getDescripcion");
         Promocion instance = null;
         String expResult = "";
         String result = instance.getDescripcion();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -55,12 +59,11 @@ public class PromocionTest {
      * Test of setDescripcion method, of class Promocion.
      */
     @Test
-    public void testSetDescripcion() {
+    void testSetDescripcion() {
         System.out.println("setDescripcion");
         String descripcion = "";
         Promocion instance = null;
         instance.setDescripcion(descripcion);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -68,13 +71,12 @@ public class PromocionTest {
      * Test of getDescuento method, of class Promocion.
      */
     @Test
-    public void testGetDescuento() {
+    void testGetDescuento() {
         System.out.println("getDescuento");
         Promocion instance = null;
         float expResult = 0.0F;
         float result = instance.getDescuento();
         assertEquals(expResult, result, 0);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -82,19 +84,17 @@ public class PromocionTest {
      * Test of setDescuento method, of class Promocion.
      */
     @Test
-    public void testSetDescuento() {
+    void testSetDescuento() {
         System.out.println("setDescuento");
         float descuento = 0.0F;
         Promocion instance = null;
         instance.setDescuento(descuento);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
-    
+
     @Test
     @DisplayName("Comprobar getters y setters")
-    public void P1() {
+    void P1() {
         Promocion p = new Promocion("Promo", 0.2f);
         p.setDescripcion("Nueva");
         p.setDescuento(0.3f);

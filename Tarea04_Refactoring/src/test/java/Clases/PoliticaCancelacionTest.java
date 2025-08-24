@@ -16,38 +16,42 @@ import org.junit.jupiter.api.DisplayName;
  *
  * @author Cesar Moreira
  */
-public class PoliticaCancelacionTest {
-    
-    public PoliticaCancelacionTest() {
+class PoliticaCancelacionTest {
+
+    PoliticaCancelacionTest() {
+        // Constructor vacío intencional: requerido por JUnit para instanciar la clase de prueba
     }
-    
+
     @BeforeAll
-    public static void setUpClass() {
+    static void setUpClass() {
+        // Intencionalmente vacío: no se requiere configuración global antes de las pruebas
     }
-    
+
     @AfterAll
-    public static void tearDownClass() {
+    static void tearDownClass() {
+        // Intencionalmente vacío: no se requiere limpieza global después de las pruebas
     }
-    
+
     @BeforeEach
-    public void setUp() {
+    void setUp() {
+        // Intencionalmente vacío: no se necesita inicialización previa por cada prueba
     }
-    
+
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
+        // Intencionalmente vacío: no se necesita limpieza posterior a cada prueba
     }
 
     /**
      * Test of getDescripcion method, of class PoliticaCancelacion.
      */
     @Test
-    public void testGetDescripcion() {
+    void testGetDescripcion() {
         System.out.println("getDescripcion");
         PoliticaCancelacion instance = null;
         String expResult = "";
         String result = instance.getDescripcion();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -55,12 +59,11 @@ public class PoliticaCancelacionTest {
      * Test of setDescripcion method, of class PoliticaCancelacion.
      */
     @Test
-    public void testSetDescripcion() {
+    void testSetDescripcion() {
         System.out.println("setDescripcion");
         String descripcion = "";
         PoliticaCancelacion instance = null;
         instance.setDescripcion(descripcion);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -68,13 +71,12 @@ public class PoliticaCancelacionTest {
      * Test of getId method, of class PoliticaCancelacion.
      */
     @Test
-    public void testGetId() {
+    void testGetId() {
         System.out.println("getId");
         PoliticaCancelacion instance = null;
         int expResult = 0;
         int result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -82,24 +84,22 @@ public class PoliticaCancelacionTest {
      * Test of setId method, of class PoliticaCancelacion.
      */
     @Test
-    public void testSetId() {
+    void testSetId() {
         System.out.println("setId");
         int id = 0;
         PoliticaCancelacion instance = null;
         instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
-    
+
     @Test
     @DisplayName("Comprobar getters y setters")
-    public void PC1() {
+    void PC1() {
         PoliticaCancelacion pc = new PoliticaCancelacion(1, "Regla");
         pc.setId(2);
         pc.setDescripcion("Regla2");
         assertEquals(2, pc.getId());
         assertEquals("Regla2", pc.getDescripcion());
     }
-    
+
 }

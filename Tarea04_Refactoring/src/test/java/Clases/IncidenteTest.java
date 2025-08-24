@@ -17,37 +17,41 @@ import org.junit.jupiter.api.DisplayName;
  * @author Cesar Moreira
  */
 public class IncidenteTest {
-    
-    public IncidenteTest() {
+
+    IncidenteTest() {
+        // Constructor vacío intencional: requerido por JUnit para instanciar la clase de prueba
     }
-    
+
     @BeforeAll
-    public static void setUpClass() {
+    static void setUpClass() {
+        // Intencionalmente vacío: no se requiere configuración global antes de las pruebas
     }
-    
+
     @AfterAll
-    public static void tearDownClass() {
+    static void tearDownClass() {
+        // Intencionalmente vacío: no se requiere limpieza global después de las pruebas
     }
-    
+
     @BeforeEach
-    public void setUp() {
+    void setUp() {
+        // Intencionalmente vacío: no se necesita inicialización previa por cada prueba
     }
-    
+
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
+        // Intencionalmente vacío: no se necesita limpieza posterior a cada prueba
     }
 
     /**
      * Test of getIncidente method, of class Incidente.
      */
     @Test
-    public void testGetIncidente() {
+    void testGetIncidente() {
         System.out.println("getIncidente");
         Incidente instance = null;
         String expResult = "";
         String result = instance.getIncidente();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -55,12 +59,11 @@ public class IncidenteTest {
      * Test of setIncidente method, of class Incidente.
      */
     @Test
-    public void testSetIncidente() {
+    void testSetIncidente() {
         System.out.println("setIncidente");
         String incidente = "";
         Incidente instance = null;
         instance.setIncidente(incidente);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -68,13 +71,12 @@ public class IncidenteTest {
      * Test of getEstado method, of class Incidente.
      */
     @Test
-    public void testGetEstado() {
+    void testGetEstado() {
         System.out.println("getEstado");
         Incidente instance = null;
         String expResult = "";
         String result = instance.getEstado();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -82,12 +84,11 @@ public class IncidenteTest {
      * Test of setEstado method, of class Incidente.
      */
     @Test
-    public void testSetEstado() {
+    void testSetEstado() {
         System.out.println("setEstado");
         String estado = "";
         Incidente instance = null;
         instance.setEstado(estado);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -95,13 +96,12 @@ public class IncidenteTest {
      * Test of getReportadoPor method, of class Incidente.
      */
     @Test
-    public void testGetReportadoPor() {
+    void testGetReportadoPor() {
         System.out.println("getReportadoPor");
         Incidente instance = null;
         Usuario expResult = null;
         Usuario result = instance.getReportadoPor();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -109,24 +109,19 @@ public class IncidenteTest {
      * Test of setReportadoPor method, of class Incidente.
      */
     @Test
-    public void testSetReportadoPor() {
+    void testSetReportadoPor() {
         System.out.println("setReportadoPor");
         Usuario reportadoPor = null;
         Incidente instance = null;
         instance.setReportadoPor(reportadoPor);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
-    
-    
-    
-    
+
     @Test
     @DisplayName("Comprobar getters y setters")
-    public void I1() {
-        Usuario rep = new Usuario("Ana","a@mail.com");
-        Incidente i = new Incidente("Desc","Pendiente", rep);
+    void I1() {
+        Usuario rep = new Usuario("Ana", "a@mail.com");
+        Incidente i = new Incidente("Desc", "Pendiente", rep);
         i.setEstado("Cerrado");
         assertEquals("Cerrado", i.getEstado());
         assertSame(rep, i.getReportadoPor());
